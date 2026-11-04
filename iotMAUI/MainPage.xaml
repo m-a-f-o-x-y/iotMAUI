@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iotMAUI.MainPage">
+
+    <ScrollView BackgroundColor="LightBlue">
+        <ScrollView.Resources>
+            <Style TargetType="Image">
+                <Setter Property="Margin" Value="0, 20, 20, 20"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10"></Setter>
+            </Style>
+        </ScrollView.Resources>
+        
+        <VerticalStackLayout>
+            <Label 
+                Text="Urządzenia domowe" 
+                FontAttributes="Bold" 
+                FontSize="32" 
+                HorizontalTextAlignment="Center"
+                Margin="5"
+                >
+            </Label>
+            <Label 
+                Text="Autor: 00000000000"
+                HorizontalTextAlignment="Center"
+                Margin="5"
+                
+                >
+            </Label>
+
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="150"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="pralka.jpg" HeightRequest="150"></Image>
+                <Image Source="odkurzacz.jpg" HeightRequest="150" Grid.Row="2"></Image>
+
+                <VerticalStackLayout Grid.Column="1">
+                    <Label Text="Pralka" FontAttributes="Bold" FontSize="20"></Label>
+                    <Entry Placeholder="Podaj nr prania 1..12" PlaceholderColor="Navy" BackgroundColor="SkyBlue" x:Name="programme"></Entry>
+                    <Button Text="Zatwierdź" Clicked="masterProgramme"></Button>
+                    <Label Text="{Binding WasherMsg}"></Label>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1" Grid.Row="2">
+                    <Label Text="Odkurzacz" FontAttributes="Bold" FontSize="20"></Label>
+                    <Button Text="{Binding Button2Msg}" Clicked="flipOnStateVacuum"></Button>
+                    <Label Text="{Binding VacuumMsg}"></Label>
+                    <Label Text="{Binding VacuumStateMsg}"></Label>
+                </VerticalStackLayout>
+                
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

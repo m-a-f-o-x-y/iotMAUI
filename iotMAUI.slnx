@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="iotCSharp/iotCSharp.csproj" />
+  <Project Path="iotMAUI/iotMAUI.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
