@@ -2,28 +2,32 @@
 {
     public partial class MainPage : ContentPage
     {
-        dataContainer dataContainer = new();
+        dataContainer DataContainer { get; set; } = new();
 
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = dataContainer;
-
-
-            
+            BindingContext = DataContainer;
         }
 
         private void masterProgramme(object sender, EventArgs e)
         {
-            int _selected = 0; 
-            int.TryParse(programme.Text, out _selected);
+            bool convertedSuccessfully = int.TryParse(programme.Text, out int _selected);
 
-            dataContainer.WasherProgram = _selected;
+            if (convertedSuccessfully)
+            {
+                DataContainer.WasherProgram = _selected;
+            }
+            else
+            {
+                DataContainer.WasherProgram = 0;
+            }
+
         }
 
         private void flipOnStateVacuum(object sender, EventArgs e)
         {
-            dataContainer.VaccumState = !dataContainer.VaccumState;
+            DataContainer.VaccumState = !DataContainer.VaccumState;
         }
     }
 }
